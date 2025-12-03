@@ -2,7 +2,6 @@ import numpy as np
 import math
 from itertools import combinations
 import copy
-from subjects.comb7.comb_7_list_wo_suit import do_comb7_with_fl_list, do_comb_7_tuple_list
 from subjects.comb5.comb5_simple import Comb5Simple
 from subjects import Deck
 
@@ -120,11 +119,6 @@ class Comb7Tools():
                                 
         return res_dist
     
-    def do_comb7_str_list()-> list[str]:
-        comb7_str_list = []
-        combs7 = do_comb7_with_fl_list()
-        for rank_tuple in combs7:
-            comb7_str_list.append(Comb7Tools.do_str_key(rank_tuple))
-        return comb7_str_list
+    
             
         

@@ -51,13 +51,7 @@ class CombRanksTool():
             rank_dict = rank_dict,
         )
         
-    # def do_combrank_from_list_rank( list_rank: str) -> CombRanks:
-    #     ranks = np.array(list_rank)
-    #     unique_elements, counts = np.unique(ranks, return_counts=True)
-    #     rank_dict = dict(zip(unique_elements,counts))
-    #     return CombRanks(
-    #         rank_dict = rank_dict,
-    #     )
+
     
     def small_combrank_in_big(small_cr: CombRanks,big_small: CombRanks ) -> bool:
         for small_r, small_am_r in small_cr.rank_dict.items():
@@ -78,10 +72,3 @@ if __name__ =="__main__":
     comb5_sh_small = CombRanksTool.do_combrank_from_str_rank_key(str_key_small)
     print(comb5_sh_small)
     print(CombRanksTool.small_combrank_in_big(comb5_sh_small,comb5_sh))
-    # ranks_str = str_key.split('_')[0].split(',')
-    # ranks = np.array(list(map(lambda x: int(x),ranks_str)))
-    # unique_elements, counts = np.unique(ranks, return_counts=True)
-    # # print(ranks_str.split(',').map(lambda x: int(x)))
-    # print( unique_elements, counts)
-    # res_dict = dict(zip(unique_elements,counts))
-    # print(res_dict)
