@@ -61,8 +61,21 @@ class CombRanksTool():
                 return False
         return True
     
-
-
+    def rest_small_combrank_in_big(small_cr: CombRanks,big_small: CombRanks ) -> CombRanks|None:
+        if not CombRanksTool.small_combrank_in_big(small_cr,big_small):
+            return None
+        copy_rank_dict = big_small.rank_dict.copy()
+        for small_r, small_am_r in small_cr.rank_dict.items():
+            copy_rank_dict[small_r] -= small_am_r
+            if copy_rank_dict[small_r] ==0:
+                copy_rank_dict.pop(small_r)
+        if len(copy_rank_dict) ==0:
+            return None
+        return CombRanks(
+            rank_dict= copy_rank_dict)           
+    
+    
+    
 if __name__ =="__main__":
     str_key = "3,8,9,9,14"
     

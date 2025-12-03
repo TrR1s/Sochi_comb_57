@@ -1,7 +1,7 @@
 from pydantic import BaseModel, computed_field,field_validator,Field
 import numpy as np
 from utils.read_json5 import read_json
-from subjects.deck.card import Card,Rank,Suit,RankTools
+from subjects.deck_cards_rank_suits.deck_cards_rank_suits import Card,Rank,Suit,RankTools
 from subjects.comb_name.comb_name import CombType
 
 class Comb5Dict():

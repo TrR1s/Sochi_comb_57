@@ -1,6 +1,7 @@
 from pydantic import BaseModel, computed_field,model_validator,Field
 from enum import StrEnum
 import numpy as np
+import random
 
 class Rank(StrEnum):
     ACE = 'A',
@@ -113,6 +114,13 @@ class Deck(BaseModel):
         
     def add_cards(self, card_list:list[Card]):
         self.cards_set |= set(card_list)
+        
+    def deal_rnd_cards(self, amount_cards:int)-> list[Card]:
+        if len(self.cards_set) < amount_cards:
+            raise ValueError('Not enough cards in deck to deal')
+        dealt_cards = random.sample(list(self.cards_set), amount_cards)
+        self.remove_cards(dealt_cards)  
+        return dealt_cards
         
 
 class DeckTools():
