@@ -25,4 +25,7 @@ dist/
 # *.csv
 db.sqlite3
 
-*.ipynb
+# *.ipynb
+
+.jupyter
+.ipynb_checkpoints
