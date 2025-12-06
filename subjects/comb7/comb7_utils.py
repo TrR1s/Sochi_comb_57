@@ -43,6 +43,14 @@ class Comb7Tools():
         
         return f'{rank_list_str}_{flush_str}'
     
+    def do_tuple_from_str_key(str_key: str) -> tuple[list[int], list[int]]:
+        rank_part, flush_part = str_key.split('_')
+        rank_list = list(map(int, rank_part.split(',')))
+        flush_list = []
+        if flush_part != 'unfl':
+            flush_list = list(map(int, flush_part.split(',')))
+        return (rank_list, flush_list)
+    
     def count_amount_in_deck(rank_list:list[int],deck: Deck) -> dict[str,int]:
         
         def __count_amount(ranks, freq, deck_ranks_amount) -> int:
